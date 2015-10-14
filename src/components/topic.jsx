@@ -2,6 +2,7 @@ var React = require('react');
 var Actions = require('../actions');
 var ImageStore = require('../stores/image-store');
 var Reflux = require('reflux');
+var ImagePreview = require('./image-preview');
 
 module.exports = React.createClass({
   mixins: [
@@ -24,9 +25,15 @@ module.exports = React.createClass({
   //new props and you will NEED TO RERENDER yourself
   render: function() {
     return <div>
-
+      {this.renderImages()}
     </div>
   },
+  renderImages: function() {
+    return this.state.images.slice(0, 20).map(function(image) {
+      return <ImagePreview key={image.id} {...image} />
+    });
+  },
+  // {...image} is spread operator that means image={image}
   onChange: function(event, images) {
     this.setState({images: images})
   }
