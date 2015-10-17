@@ -24,12 +24,12 @@ module.exports = React.createClass({
   //uses NextProps as arg, says whenever this function is called, we're getting
   //new props and you will NEED TO RERENDER yourself
   render: function() {
-    return <div>
+    return <div className="topic">
       {this.renderImages()}
     </div>
   },
   renderImages: function() {
-    return this.state.images.slice(0, 20).map(function(image) {
+    return this.state.images.slice(0, 21).map(function(image) {
       return <ImagePreview key={image.id} {...image} />
     });
   },
