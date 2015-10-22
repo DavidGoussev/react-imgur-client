@@ -15,6 +15,6 @@ module.exports = React.createClass({
       return this.props.children
     } else {
       return <TopicList />
-    }    
+    }
   }
 });
